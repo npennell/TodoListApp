@@ -16,6 +16,7 @@
 		1B2719AD2A21732A0049CB37 /* TodoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719AC2A21732A0049CB37 /* TodoListAppTests.swift */; };
 		1B2719B72A21732A0049CB37 /* TodoListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719B62A21732A0049CB37 /* TodoListAppUITests.swift */; };
 		1B2719B92A21732A0049CB37 /* TodoListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719B82A21732A0049CB37 /* TodoListAppUITestsLaunchTests.swift */; };
+		1B2719CA2A2176DC0049CB37 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719C92A2176DC0049CB37 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		1B2719B22A21732A0049CB37 /* TodoListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2719B62A21732A0049CB37 /* TodoListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppUITests.swift; sourceTree = "<group>"; };
 		1B2719B82A21732A0049CB37 /* TodoListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1B2719C92A2176DC0049CB37 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				1B27199F2A21732A0049CB37 /* Persistence.swift */,
 				1B2719A12A21732A0049CB37 /* TodoListApp.xcdatamodeld */,
 				1B27199C2A21732A0049CB37 /* Preview Content */,
+				1B2719C92A2176DC0049CB37 /* MapView.swift */,
 			);
 			path = TodoListApp;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				1B2719A02A21732A0049CB37 /* Persistence.swift in Sources */,
 				1B2719992A2173280049CB37 /* ContentView.swift in Sources */,
+				1B2719CA2A2176DC0049CB37 /* MapView.swift in Sources */,
 				1B2719972A2173280049CB37 /* TodoListAppApp.swift in Sources */,
 				1B2719A32A21732A0049CB37 /* TodoListApp.xcdatamodeld in Sources */,
 			);
