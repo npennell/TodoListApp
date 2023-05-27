@@ -47,10 +47,10 @@ struct ItemEditView: View {
                 
             }
             Section(header: Text("Image")){
-//                TextField("Image Name", text: $image)
                 if let data = image, let uiimage = UIImage(data: data){
                     Image(uiImage: uiimage)
                         .resizable()
+                        .scaledToFit()
                 }
                 PhotosPicker(selection: $selectedPhoto, maxSelectionCount: 1, matching: .images){
                     Text("Pick Image")
