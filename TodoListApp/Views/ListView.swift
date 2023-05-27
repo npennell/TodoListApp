@@ -10,7 +10,7 @@ import CoreData
 
 struct ListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject var contextHolder: ContextHolder
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.title, ascending: true)],
         animation: .default)
@@ -23,7 +23,7 @@ struct ListView: View {
                     List {
                         ForEach(items) { item in
                             NavigationLink (destination: ItemEditView(passedItem: item)){
-                                ItemCell(passedItem: item).environmentObject(dateHolder)
+                                ItemCell(passedItem: item).environmentObject(contextHolder)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -66,7 +66,7 @@ struct ListView: View {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
 
-            dateHolder.saveContext(viewContext)
+            contextHolder.saveContext(viewContext)
         }
     }
 }

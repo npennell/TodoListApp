@@ -1,5 +1,5 @@
 //
-//  DateHolder.swift
+//  ContextHolder.swift
 //  TodoListApp
 //
 //  Created by Nichol Pennell on 2023-05-26.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-class DateHolder: ObservableObject{
+class ContextHolder: ObservableObject{
     
     init(_ context: NSManagedObjectContext){
         

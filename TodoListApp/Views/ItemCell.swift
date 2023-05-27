@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ItemCell: View {
     
-    @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject var contextHolder: ContextHolder
     @ObservedObject var passedItem: Item
     
     var body: some View {
         CheckBoxView(passedItem: passedItem)
-            .environmentObject(dateHolder)
+            .environmentObject(contextHolder)
         Text(passedItem.title ?? "")
             .padding(.horizontal)
     }

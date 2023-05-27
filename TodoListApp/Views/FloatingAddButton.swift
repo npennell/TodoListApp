@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FloatingAddButton: View {
-    @EnvironmentObject var DateHolder: DateHolder
+    @EnvironmentObject var contextHolder: ContextHolder
     
     var body: some View {
         Spacer()

@@ -19,7 +19,7 @@
 		1B2719CA2A2176DC0049CB37 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719C92A2176DC0049CB37 /* MapView.swift */; };
 		1B2719D02A218B260049CB37 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719CF2A218B260049CB37 /* FloatingAddButton.swift */; };
 		1B2719D22A218B530049CB37 /* ItemEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D12A218B530049CB37 /* ItemEditView.swift */; };
-		1B2719D42A2195110049CB37 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D32A2195110049CB37 /* DateHolder.swift */; };
+		1B2719D42A2195110049CB37 /* ContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D32A2195110049CB37 /* ContextHolder.swift */; };
 		1B2719D62A2198FB0049CB37 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D52A2198FB0049CB37 /* ItemCell.swift */; };
 		1B2719D82A219AA10049CB37 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D72A219AA10049CB37 /* CheckBoxView.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,7 @@
 		1B2719C92A2176DC0049CB37 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1B2719CF2A218B260049CB37 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		1B2719D12A218B530049CB37 /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
-		1B2719D32A2195110049CB37 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		1B2719D32A2195110049CB37 /* ContextHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextHolder.swift; sourceTree = "<group>"; };
 		1B2719D52A2198FB0049CB37 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1B2719D72A219AA10049CB37 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -116,7 +116,7 @@
 				1B27199F2A21732A0049CB37 /* Persistence.swift */,
 				1B2719A12A21732A0049CB37 /* TodoListApp.xcdatamodeld */,
 				1B27199C2A21732A0049CB37 /* Preview Content */,
-				1B2719D32A2195110049CB37 /* DateHolder.swift */,
+				1B2719D32A2195110049CB37 /* ContextHolder.swift */,
 			);
 			path = TodoListApp;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 				1B2719D02A218B260049CB37 /* FloatingAddButton.swift in Sources */,
 				1B2719972A2173280049CB37 /* TodoListAppApp.swift in Sources */,
 				1B2719A32A21732A0049CB37 /* TodoListApp.xcdatamodeld in Sources */,
-				1B2719D42A2195110049CB37 /* DateHolder.swift in Sources */,
+				1B2719D42A2195110049CB37 /* ContextHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

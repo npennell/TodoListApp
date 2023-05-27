@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckBoxView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject var contextHolder: ContextHolder
     @ObservedObject var passedItem: Item
     
     var body: some View {
@@ -18,7 +18,7 @@ struct CheckBoxView: View {
             .onTapGesture {
                 withAnimation{
                     passedItem.completed = !passedItem.completed
-                    dateHolder.saveContext(viewContext)
+                    contextHolder.saveContext(viewContext)
                 }
             }
     }
