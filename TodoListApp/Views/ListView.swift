@@ -33,12 +33,16 @@ struct ListView: View {
                             EditButton()
                         }
 //                        ToolbarItem {
-//                            Button() {
-//                                Label("Add Item", systemImage: "plus")
+//                            NavigationLink (destination: ItemEditView(passedItem: nil)){
+//                                VStack{
+//                                    Label("Add Item", systemImage: "plus")
+////                                    Text("Add Todo")
+//                                }
+//
 //                            }
 //                        }
                     }
-                    FloatingAddButton()
+                    FloatingAddButton() // Other option for add button
                 }
             }.navigationTitle("To Do List")
         }
