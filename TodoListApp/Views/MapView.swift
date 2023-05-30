@@ -28,7 +28,7 @@ struct MapView: View {
     var body: some View {
 //        let _ = self.getLocationsFromItems()
         VStack{
-            Text("length of locations array = \(pinLocations.count)")
+//            Text("length of locations array = \(pinLocations.count)")
             Map(coordinateRegion: $region, annotationItems: pinLocations) { item in
                 MapMarker(coordinate: item.coordinate)
             }
@@ -55,9 +55,9 @@ struct MapView: View {
 //                print("no location")
 //            }
         }
-        print("locations: ", pinLocations)
-        print("items count", items.count)
-        print("items", items)
+//        print("locations: ", pinLocations)
+//        print("items count", items.count)
+//        print("items", items)
 //        return locations
     }
 }

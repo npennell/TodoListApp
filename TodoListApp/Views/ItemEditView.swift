@@ -23,9 +23,13 @@ struct ItemEditView: View {
     @State var selectedPhoto: [PhotosPickerItem] = []
     @State var photoData: Data?
     
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
+    @State private var locationCheckResult = false
+    
     init(passedItem: Item?){
         if let item = passedItem{
-            print(item.latitude, item.longitude)
+//            print(item.latitude, item.longitude)
             _selectedItem = State(initialValue: item)
             _title = State(initialValue: item.title ?? "")
             _location = State(initialValue: item.location ?? "")
@@ -34,10 +38,11 @@ struct ItemEditView: View {
             _image = State(initialValue: item.image)
             _completed = State(initialValue: item.completed)
             
-            if(location != "" && (latitude == nil || longitude == nil)){
-                getLocationInfo(from: location)
-            }
-            print(latitude, longitude)
+            // Trying to fix data permanance issue
+//            if(location != "" && (latitude == nil || longitude == nil)){
+//                getLocationInfo(from: location)
+//            }
+//            print(latitude, longitude)
         }
         else{
             _title = State(initialValue: "")
@@ -49,6 +54,8 @@ struct ItemEditView: View {
     }
     
     var body: some View {
+        
+        
         Form{
             Section(header: Text("Task")){
                 TextField("Task Name", text: $title)
@@ -89,12 +96,33 @@ struct ItemEditView: View {
                 
             }
             Section(){
-                Button("Save", action: saveAction)
+                Button("Save", action: dataCheck)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
+        .alert(alertMessage, isPresented: $showingAlert){
+            Button("OK", role: .cancel) {
+                locationCheckResult = false // NEEDED?
+            }
+        }
     }
+    func dataCheck(){
+        // Title field check
+        if(title == ""){
+            alertMessage = "Please add a title to todo!"
+            showingAlert = true
+            return
+        }
+        locationValidCheck(address: location)
+        if(locationCheckResult == false){
+//            alertMessage = "Invalid loc!"
+//            showingAlert = true
+            return
+        }
+        saveAction()
+    }
+    
     func saveAction(){
         withAnimation{
             if selectedItem == nil{
@@ -129,6 +157,27 @@ struct ItemEditView: View {
             contextHolder.saveContext(viewContext)
             
             self.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func locationValidCheck(address: String){
+//        locationCheckResult = nil
+        if(address == ""){
+            locationCheckResult = true
+            return
+        }
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address){ (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let _ = placemarks.first?.location
+            else{
+                locationCheckResult = false
+                alertMessage = "Invalid location!\nPlease adjust before saving"
+                showingAlert = true
+                return
+            }
+            locationCheckResult = true
         }
     }
     
