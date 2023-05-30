@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct TodoListAppApp: App {
+    
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
@@ -21,7 +22,7 @@ struct TodoListAppApp: App {
                 Image(systemName: "checklist")
                 Text("List View")
             }.tag(1)
-            MapView().tabItem {
+            MapView().environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(contextHolder).tabItem {
                 Image(systemName: "map")
                 Text("Map View")
                 

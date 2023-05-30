@@ -22,6 +22,9 @@
 		1B2719D42A2195110049CB37 /* ContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D32A2195110049CB37 /* ContextHolder.swift */; };
 		1B2719D62A2198FB0049CB37 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D52A2198FB0049CB37 /* ItemCell.swift */; };
 		1B2719D82A219AA10049CB37 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D72A219AA10049CB37 /* CheckBoxView.swift */; };
+		1B2719DA2A22BD730049CB37 /* PinLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2719D92A22BD730049CB37 /* PinLocations.swift */; };
+		1BD9655A2A2501C200779299 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD965592A2501C200779299 /* Pin.swift */; };
+		1BD9655C2A2506C800779299 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9655B2A2506C800779299 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		1B2719D32A2195110049CB37 /* ContextHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextHolder.swift; sourceTree = "<group>"; };
 		1B2719D52A2198FB0049CB37 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1B2719D72A219AA10049CB37 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = SOURCE_ROOT; };
+		1B2719D92A22BD730049CB37 /* PinLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocations.swift; sourceTree = "<group>"; };
+		1BD965592A2501C200779299 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		1BD9655B2A2506C800779299 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 		1B2719952A2173280049CB37 /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BD9655B2A2506C800779299 /* Location.swift */,
+				1BD965592A2501C200779299 /* Pin.swift */,
+				1B2719D92A22BD730049CB37 /* PinLocations.swift */,
 				1B2719CE2A2183FC0049CB37 /* Views */,
 				1B2719962A2173280049CB37 /* TodoListAppApp.swift */,
 				1B27199A2A21732A0049CB37 /* Assets.xcassets */,
@@ -295,9 +304,12 @@
 				1B2719D62A2198FB0049CB37 /* ItemCell.swift in Sources */,
 				1B2719D22A218B530049CB37 /* ItemEditView.swift in Sources */,
 				1B2719CA2A2176DC0049CB37 /* MapView.swift in Sources */,
+				1BD9655C2A2506C800779299 /* Location.swift in Sources */,
+				1BD9655A2A2501C200779299 /* Pin.swift in Sources */,
 				1B2719D02A218B260049CB37 /* FloatingAddButton.swift in Sources */,
 				1B2719972A2173280049CB37 /* TodoListAppApp.swift in Sources */,
 				1B2719A32A21732A0049CB37 /* TodoListApp.xcdatamodeld in Sources */,
+				1B2719DA2A22BD730049CB37 /* PinLocations.swift in Sources */,
 				1B2719D42A2195110049CB37 /* ContextHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
