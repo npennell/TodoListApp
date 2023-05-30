@@ -65,7 +65,7 @@
 		1B2719D72A219AA10049CB37 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = SOURCE_ROOT; };
 		1B2719D92A22BD730049CB37 /* PinLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocations.swift; sourceTree = "<group>"; };
 		1BD965592A2501C200779299 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
-		1BD9655B2A2506C800779299 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = SOURCE_ROOT; };
+		1BD9655B2A2506C800779299 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Location.swift; path = "TodoListApp/Data Types/Location.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +116,7 @@
 		1B2719952A2173280049CB37 /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
-				1BD9655B2A2506C800779299 /* Location.swift */,
-				1BD965592A2501C200779299 /* Pin.swift */,
-				1B2719D92A22BD730049CB37 /* PinLocations.swift */,
+				1BD9655D2A264DBF00779299 /* Data Types */,
 				1B2719CE2A2183FC0049CB37 /* Views */,
 				1B2719962A2173280049CB37 /* TodoListAppApp.swift */,
 				1B27199A2A21732A0049CB37 /* Assets.xcassets */,
@@ -166,6 +164,16 @@
 				1B2719D52A2198FB0049CB37 /* ItemCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1BD9655D2A264DBF00779299 /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				1BD9655B2A2506C800779299 /* Location.swift */,
+				1BD965592A2501C200779299 /* Pin.swift */,
+				1B2719D92A22BD730049CB37 /* PinLocations.swift */,
+			);
+			path = "Data Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
