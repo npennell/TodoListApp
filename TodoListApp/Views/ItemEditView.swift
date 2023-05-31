@@ -63,9 +63,43 @@ struct ItemEditView: View {
             }
             Section(header: Text("Image")){
                 if let data = image, let uiimage = UIImage(data: data){
-                    Image(uiImage: uiimage)
-                        .resizable()
-                        .scaledToFit()
+                    VStack{
+                        HStack{
+                            Spacer()
+                            VStack{
+                                ZStack {
+                                    HStack{
+                                        Button(action: deleteImage){
+                                            Image(systemName: "xmark.circle.fill")
+                                                .foregroundColor(.red)
+//                                            Text("Delete image").foregroundColor(.red)
+                                        }
+                                        
+                                    }
+                                }
+    //                            Spacer()
+                            }
+                           
+                        }
+                        Image(uiImage: uiimage)
+                            .resizable()
+                            .scaledToFit()
+//                            .overlay(Group {
+//                                HStack{
+//                                    Spacer()
+//                                    VStack{
+//                                        ZStack {
+//                                            Button(action: deleteImage){
+//                                                Image(systemName: "xmark.circle.fill")
+//                                                    .cornerRadius(10)
+//                                                    .foregroundColor(.red)
+//                                            }
+//                                        }
+//                                        Spacer()
+//                                    }
+//                                }
+//                            })
+                    }
                 }
                 PhotosPicker(selection: $selectedPhoto, maxSelectionCount: 1, matching: .images){
                     Text("Pick Image")
@@ -89,6 +123,7 @@ struct ItemEditView: View {
                         }
                     }
                 }
+                
             }
             Section(header: Text("Location")){
                 TextField("Location", text: $location)
@@ -121,6 +156,13 @@ struct ItemEditView: View {
             return
         }
         saveAction()
+    }
+    
+    func deleteImage(){
+        print("delete image")
+        // nil all photo related data
+        image = nil
+        
     }
     
     func saveAction(){

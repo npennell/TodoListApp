@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct PinLocation: Identifiable, Codable, Equatable {
+struct PinLocation: Identifiable,  Equatable {
     let id: UUID
     var title: String
     let latitude: Double
@@ -16,5 +16,6 @@ struct PinLocation: Identifiable, Codable, Equatable {
     var coordinate: CLLocationCoordinate2D{
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+    let item: Item
 //    let itemUUID: UUID
 }

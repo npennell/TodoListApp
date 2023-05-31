@@ -31,6 +31,22 @@ struct MapView: View {
 //            Text("length of locations array = \(pinLocations.count)")
             Map(coordinateRegion: $region, annotationItems: pinLocations) { item in
                 MapMarker(coordinate: item.coordinate)
+//                MapAnnotation(coordinate: item.coordinate){
+//                    NavigationLink(destination: ItemEditView(passedItem: item.item)){
+//                        Button(action:{print(item.title)}){
+//                            Image(systemName: "pin.circle.fill").foregroundColor(.red).environmentObject(contextHolder)
+//                        }
+//                    }
+//
+////                    NavigationLink(destination: ItemEditView(passedItem: item.item)){
+////                        Image(systemName: "pin.circle.fill").foregroundColor(.red)
+////                    }
+////                    NavigationLink(destination: ItemEditView(passedItem: item.item)){
+////                        Image(systemName: "pin.circle.fill").foregroundColor(.red)
+////                    }
+//                }
+                
+                
             }
             
 //            Working map sample!
@@ -48,7 +64,7 @@ struct MapView: View {
 //            if(item.latit != nil){
 //                print(item.locationCoordinates)
 //                locations.append(item.locationCoordinates!)
-                pinLocations.append(PinLocation(id: UUID(), title: item.title!, latitude: item.latitude, longitude: item.longitude))
+            pinLocations.append(PinLocation(id: UUID(), title: item.title!, latitude: item.latitude, longitude: item.longitude, item: item))
 //                print("test")
 //            }
 //            else{
