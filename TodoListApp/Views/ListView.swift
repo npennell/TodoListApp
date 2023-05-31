@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import MapKit
 
 struct ListView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -22,6 +23,7 @@ struct ListView: View {
                 ZStack{
                     List {
                         ForEach(items) { item in
+                            let _ = self.checkLocationData(item: item) // go through and check location data, update when necessary
                             NavigationLink (destination: ItemEditView(passedItem: item)){
                                 ItemCell(passedItem: item).environmentObject(contextHolder)
                             }
@@ -32,6 +34,7 @@ struct ListView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             EditButton()
                         }
+                        // Toolbar add button option
 //                        ToolbarItem {
 //                            NavigationLink (destination: ItemEditView(passedItem: nil)){
 //                                VStack{
@@ -48,23 +51,40 @@ struct ListView: View {
         }
     }
 
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.duedate = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-
+    // Used to fix the data permanence issue on reload app
+    private func checkLocationData(item: Item){
+        if(item.location != ""){
+            if(item.latitude == nil || item.latitude == 0 || item.longitude == nil || item.longitude == 0){
+                getLocation(from: item.location!){ location in
+                    if(location != nil){
+                        print("location found:")
+                        item.latitude = location?.latitude ?? 91
+                        item.longitude = location?.longitude ?? 181
+                        
+                        contextHolder.saveContext(viewContext)
+                    }
+                    else{
+                        print("invalid location")
+                    }
+                }
+            }
+        }
+    }
     
+    private func getLocation(from address: String, completion: @escaping (_ location: Location?)-> Void){
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address){ (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+            else{
+                completion(nil)
+                return
+            }
+            let formattedLocation = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            completion(formattedLocation)
+        }
+    }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {

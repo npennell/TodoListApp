@@ -72,33 +72,15 @@ struct ItemEditView: View {
                                         Button(action: deleteImage){
                                             Image(systemName: "xmark.circle.fill")
                                                 .foregroundColor(.red)
-//                                            Text("Delete image").foregroundColor(.red)
+//                                            Text("Delete image").foregroundColor(.red) // Text option for delete
                                         }
-                                        
                                     }
                                 }
-    //                            Spacer()
                             }
-                           
                         }
                         Image(uiImage: uiimage)
                             .resizable()
                             .scaledToFit()
-//                            .overlay(Group {
-//                                HStack{
-//                                    Spacer()
-//                                    VStack{
-//                                        ZStack {
-//                                            Button(action: deleteImage){
-//                                                Image(systemName: "xmark.circle.fill")
-//                                                    .cornerRadius(10)
-//                                                    .foregroundColor(.red)
-//                                            }
-//                                        }
-//                                        Spacer()
-//                                    }
-//                                }
-//                            })
                     }
                 }
                 PhotosPicker(selection: $selectedPhoto, maxSelectionCount: 1, matching: .images){
@@ -223,7 +205,7 @@ struct ItemEditView: View {
         }
     }
     
-    func getLocation(from address: String, completion: @escaping (_ location: Location?)-> Void){
+    public func getLocation(from address: String, completion: @escaping (_ location: Location?)-> Void){
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address){ (placemarks, error) in
             guard
