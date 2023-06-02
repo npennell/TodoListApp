@@ -25,7 +25,6 @@ struct FloatingAddButton: View {
                 .cornerRadius(30)
                 .padding(30)
                 .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
-                //            .padding(.)
             }
         }
     }

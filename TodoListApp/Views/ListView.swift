@@ -34,16 +34,6 @@ struct ListView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             EditButton()
                         }
-                        // Toolbar add button option
-//                        ToolbarItem {
-//                            NavigationLink (destination: ItemEditView(passedItem: nil)){
-//                                VStack{
-//                                    Label("Add Item", systemImage: "plus")
-////                                    Text("Add Todo")
-//                                }
-//
-//                            }
-//                        }
                     }
                     FloatingAddButton() // Other option for add button
                 }
@@ -57,10 +47,8 @@ struct ListView: View {
             if(item.latitude == nil || item.latitude == 0 || item.longitude == nil || item.longitude == 0){
                 getLocation(from: item.location!){ location in
                     if(location != nil){
-                        print("location found:")
                         item.latitude = location?.latitude ?? 91
                         item.longitude = location?.longitude ?? 181
-                        
                         contextHolder.saveContext(viewContext)
                     }
                     else{

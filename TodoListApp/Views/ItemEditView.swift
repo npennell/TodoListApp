@@ -29,7 +29,6 @@ struct ItemEditView: View {
     
     init(passedItem: Item?){
         if let item = passedItem{
-//            print(item.latitude, item.longitude)
             _selectedItem = State(initialValue: item)
             _title = State(initialValue: item.title ?? "")
             _location = State(initialValue: item.location ?? "")
@@ -37,12 +36,6 @@ struct ItemEditView: View {
             _longitude = State(initialValue: item.longitude)
             _image = State(initialValue: item.image)
             _completed = State(initialValue: item.completed)
-            
-            // Trying to fix data permanance issue
-//            if(location != "" && (latitude == nil || longitude == nil)){
-//                getLocationInfo(from: location)
-//            }
-//            print(latitude, longitude)
         }
         else{
             _title = State(initialValue: "")
@@ -54,12 +47,9 @@ struct ItemEditView: View {
     }
     
     var body: some View {
-        
-        
         Form{
             Section(header: Text("Task")){
                 TextField("Task Name", text: $title)
-                
             }
             Section(header: Text("Image")){
                 if let data = image, let uiimage = UIImage(data: data){
@@ -105,12 +95,9 @@ struct ItemEditView: View {
                         }
                     }
                 }
-                
             }
             Section(header: Text("Location")){
                 TextField("Location", text: $location)
-//                Text("longitude:", String($longitude))
-                
             }
             Section(){
                 Button("Save", action: dataCheck)
@@ -120,7 +107,7 @@ struct ItemEditView: View {
         }
         .alert(alertMessage, isPresented: $showingAlert){
             Button("OK", role: .cancel) {
-                locationCheckResult = false // NEEDED?
+                locationCheckResult = false
             }
         }
     }
@@ -133,8 +120,6 @@ struct ItemEditView: View {
         }
         locationValidCheck(address: location)
         if(locationCheckResult == false){
-//            alertMessage = "Invalid loc!"
-//            showingAlert = true
             return
         }
         saveAction()
@@ -152,28 +137,18 @@ struct ItemEditView: View {
             if selectedItem == nil{
                 selectedItem = Item(context: viewContext)
             }
+            
             selectedItem?.title = title
+            
             if(photoData != nil){
                 selectedItem?.image = photoData
             }
             else{
                 selectedItem?.image = image
             }
+            
             selectedItem?.location = location
-//            Test getLocation
-//            getLocation(from: location) { location in
-//                if (location != nil) {
-////                    selectedItem?.latitude = location!.latitude
-////                    selectedItem?.longitude = location!.longitude
-//                    print(location!.latitude)
-//                    print(location!.longitude)
-//                }
-//                else{
-////                    selectedItem?.latitude = 91 // maximum latitude is 90 - used to set value for default
-////                    selectedItem?.longitude = 181 // maximum longitude is 180 - used to set value for default
-//                    print("error occurred")
-//                }
-//            }
+
             getLocationInfo(from: location)
         
             selectedItem?.completed = completed
@@ -185,7 +160,6 @@ struct ItemEditView: View {
     }
     
     func locationValidCheck(address: String){
-//        locationCheckResult = nil
         if(address == ""){
             locationCheckResult = true
             return
@@ -222,15 +196,6 @@ struct ItemEditView: View {
             let formattedLocation = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             completion(formattedLocation)
         }
-        
-//        geocoder.geocodeAddressString(address) {(placemarks, error) in
-//            guard let placemarks = placemarks,
-//                let location = placemarks.first?.location?.coordinate else {
-//                completion(nil)
-//                return
-//            }
-//            completion(location)
-//        }
     }
     func getLocationInfo(from address: String){
         let geocoder = CLGeocoder()

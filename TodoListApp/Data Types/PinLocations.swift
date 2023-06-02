@@ -17,5 +17,4 @@ struct PinLocation: Identifiable,  Equatable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     let item: Item
-//    let itemUUID: UUID
 }

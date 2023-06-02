@@ -17,7 +17,7 @@ struct MapView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 57, longitude: -99), span: MKCoordinateSpan(latitudeDelta: 80, longitudeDelta: 80))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 57, longitude: -99), span: MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60))
     @State private var pinLocations = [PinLocation]()
     
     var body: some View {
@@ -26,7 +26,7 @@ struct MapView: View {
                 Map(coordinateRegion: $region, annotationItems: pinLocations) { item in
                     MapAnnotation(coordinate: item.coordinate){
                         NavigationLink(destination: ItemEditView(passedItem: item.item)){
-                            Image(systemName: "pin.circle.fill").foregroundColor(.red)
+                            Image(systemName: "pin.fill").foregroundColor(.red)
                         }
                     }
                 }

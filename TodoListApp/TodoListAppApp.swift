@@ -19,17 +19,14 @@ struct TodoListAppApp: App {
             
             TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
                 ListView().environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(contextHolder).tabItem {
-                Image(systemName: "checklist")
-                Text("List View")
-            }.tag(1)
-            MapView().environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(contextHolder).tabItem {
-                Image(systemName: "map")
-                Text("Map View")
-                
-            }.tag(2)
-        }
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    Image(systemName: "checklist")
+                    Text("List View")
+                }.tag(1)
+                MapView().environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(contextHolder).tabItem {
+                    Image(systemName: "map")
+                    Text("Map View")
+                }.tag(2)
+            }
         }
     }
 }
