@@ -25,7 +25,7 @@ struct ItemEditView: View {
     
     @State private var showingAlert = false
     @State private var alertMessage = ""
-    @State private var locationCheckResult = false
+//    @State private var locationCheckResult = false
     
     init(passedItem: Item?){
         if let item = passedItem{
@@ -107,10 +107,12 @@ struct ItemEditView: View {
         }
         .alert(alertMessage, isPresented: $showingAlert){
             Button("OK", role: .cancel) {
-                locationCheckResult = false
+//                locationCheckResult = false
             }
         }
     }
+    
+    // Error checking
     func dataCheck(){
         // Title field check
         if(title == ""){
@@ -118,13 +120,16 @@ struct ItemEditView: View {
             showingAlert = true
             return
         }
-        locationValidCheck(address: location)
-        if(locationCheckResult == false){
-            return
-        }
+        
+        // Location check: works but requires user to click submit button twice on successful location
+//        locationValidCheck(address: location)
+//        if(locationCheckResult == false){
+//            return
+//        }
         saveAction()
     }
     
+    // Deletes current image data
     func deleteImage(){
         print("delete image")
         // nil all photo related data
@@ -132,6 +137,7 @@ struct ItemEditView: View {
         
     }
     
+    // Save current data on page
     func saveAction(){
         withAnimation{
             if selectedItem == nil{
@@ -159,44 +165,28 @@ struct ItemEditView: View {
         }
     }
     
-    func locationValidCheck(address: String){
-        if(address == ""){
-            locationCheckResult = true
-            return
-        }
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address){ (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let _ = placemarks.first?.location
-            else{
-                locationCheckResult = false
-                alertMessage = "Invalid location!\nPlease adjust before saving"
-                showingAlert = true
-                return
-            }
-            locationCheckResult = true
-        }
-    }
+    // Check if location conversion produces valid location (latiude/longitude)
+//    func locationValidCheck(address: String){
+//        if(address == ""){
+//            locationCheckResult = true
+//            return
+//        }
+//        let geocoder = CLGeocoder()
+//        geocoder.geocodeAddressString(address){ (placemarks, error) in
+//            guard
+//                let placemarks = placemarks,
+//                let _ = placemarks.first?.location
+//            else{
+//                locationCheckResult = false
+//                alertMessage = "Invalid location!\nPlease adjust before saving"
+//                showingAlert = true
+//                return
+//            }
+//            locationCheckResult = true
+//        }
+//    }
     
-    public func getLocation(from address: String, completion: @escaping (_ location: Location?)-> Void){
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address){ (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let location = placemarks.first?.location
-            else{
-                completion(nil)
-                selectedItem?.latitude = 91
-                selectedItem?.longitude = 181
-                return
-            }
-            selectedItem?.latitude = location.coordinate.latitude
-            selectedItem?.longitude = location.coordinate.longitude
-            let formattedLocation = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            completion(formattedLocation)
-        }
-    }
+    // Gets location from string, saves information to working object
     func getLocationInfo(from address: String){
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address){ (placemarks, error) in
