@@ -17,7 +17,7 @@ struct FloatingAddButton: View {
             HStack{
                 Spacer()
                 NavigationLink(destination: ItemEditView(passedItem: nil)) {
-                    Text("New Task").font(.headline)
+                    Text("New Todo").font(.headline)
                 }
                 .padding(15)
                 .foregroundColor(.white)

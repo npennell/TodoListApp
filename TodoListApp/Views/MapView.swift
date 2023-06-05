@@ -30,7 +30,7 @@ struct MapView: View {
                         }
                     }
                 }
-            }.onAppear{self.getLocationsFromItems()}
+            }.onAppear{self.getLocationsFromItems()}.navigationTitle("")
         }
     }
     

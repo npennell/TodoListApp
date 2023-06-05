@@ -22,13 +22,28 @@ struct ListView: View {
             VStack{
                 ZStack{
                     List {
-                        ForEach(items) { item in
-                            let _ = self.checkLocationData(item: item) // go through and check location data, update when necessary
-                            NavigationLink (destination: ItemEditView(passedItem: item)){
-                                ItemCell(passedItem: item).environmentObject(contextHolder)
+                        Section(header: Text("Uncompleted:")){
+                            ForEach(items) { item in
+                                if(item.completed == false){
+                                    let _ = self.checkLocationData(item: item) // go through and check location data, update when necessary
+                                    NavigationLink (destination: ItemEditView(passedItem: item)){
+                                        ItemCell(passedItem: item).environmentObject(contextHolder)
+                                    }
+                                }
                             }
+                            .onDelete(perform: deleteItems)
                         }
-                        .onDelete(perform: deleteItems)
+                        Section(header: Text("Completed:")){
+                            ForEach(items) { item in
+                                if(item.completed == true){
+                                    let _ = self.checkLocationData(item: item) // go through and check location data, update when necessary
+                                    NavigationLink (destination: ItemEditView(passedItem: item)){
+                                        ItemCell(passedItem: item).environmentObject(contextHolder)
+                                    }
+                                }
+                            }
+                            .onDelete(perform: deleteItems)
+                        }
                     }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {

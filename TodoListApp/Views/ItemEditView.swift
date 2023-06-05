@@ -48,8 +48,11 @@ struct ItemEditView: View {
     
     var body: some View {
         Form{
-            Section(header: Text("Task")){
-                TextField("Task Name", text: $title)
+            Section(header: Text("Todo")){
+                TextField("Todo Title", text: $title)
+            }
+            Section(header: Text("Status")){
+                Text(completed ? "Completed" : "Not completed")
             }
             Section(header: Text("Image")){
                 if let data = image, let uiimage = UIImage(data: data){
@@ -164,27 +167,6 @@ struct ItemEditView: View {
             self.presentationMode.wrappedValue.dismiss()
         }
     }
-    
-    // Check if location conversion produces valid location (latiude/longitude)
-//    func locationValidCheck(address: String){
-//        if(address == ""){
-//            locationCheckResult = true
-//            return
-//        }
-//        let geocoder = CLGeocoder()
-//        geocoder.geocodeAddressString(address){ (placemarks, error) in
-//            guard
-//                let placemarks = placemarks,
-//                let _ = placemarks.first?.location
-//            else{
-//                locationCheckResult = false
-//                alertMessage = "Invalid location!\nPlease adjust before saving"
-//                showingAlert = true
-//                return
-//            }
-//            locationCheckResult = true
-//        }
-//    }
     
     // Gets location from string, saves information to working object
     func getLocationInfo(from address: String){
